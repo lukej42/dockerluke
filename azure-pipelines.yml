@@ -37,3 +37,21 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- stage: Deploy
+  displayName: Deploy
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    steps:
+    - task: AzureRmWebAppDeployment@3
+      inputs:
+        azureSubscription: 'Pay-as-you-go'
+        appType: 'applinux'
+        WebAppName: 'dockerluke'
+        DockerNamespace: '$(containerRegistry)'
+        DockerRepository: '$(imageReposiroty)'
+        DockerImageTag: '$(Build.BuildId)'
+        WebAppUri: webAppUrl
+        TakeAppOfflineFlag: true
+        UseWebDeploy: true
+        RenameFilesFlag: true
