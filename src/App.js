@@ -9,6 +9,7 @@ function App() {
         <h1>Hello</h1>
         <h2>Luke was here</h2>
         <h3>This is an Azure App Service website deployed as a Docker container using Azure Devops for CICD</h3>
+        <h3>This has been redeployed from my Macbook</h3>
         <h4>GR8</h4>
         <p>
           Edit <code>src/App.js</code> and save to reload.
