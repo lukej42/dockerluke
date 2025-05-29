@@ -48,6 +48,7 @@ stages:
       inputs:
         mavenServiceConnections: 'Cosmo'
     - script: |
+        mvn -f src/pom.xml
         mvn deploy
         displayName: 'Publish'
     - task: AzureRmWebAppDeployment@3
