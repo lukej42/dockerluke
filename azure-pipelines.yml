@@ -43,14 +43,6 @@ stages:
   - job: Deploy
     displayName: Deploy
     steps:
-    - task: MavenAuthenticate@0
-      displayName: 'Authenticate to Azure Artifacts feed'
-      inputs:
-        mavenServiceConnections: 'Cosmo'
-    - script: |
-        mvn -f src/pom.xml
-        mvn deploy
-        displayName: 'Publish'
     - task: AzureRmWebAppDeployment@3
       inputs:
         azureSubscription: 'Azure subscription 1(525c7c1f-f5e9-4bf4-8d7a-5b7a06889a12)'
